@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>トップページ</h1>
-<div class="form"> 
+<h1>Todo List</h1>
+<div class="form"> <br>
     <form action="/create" method="POST">
       <label for="title">Title</label>
       <input type="text" name="title" />
       <label for="details">Details</label>
       <input type="text" name="details" />
-      <input type="submit" value="Create" />
+      <input type="submit" value="Create" class="decorated-button"/>
     </form>
-</div>
+</div><br>
 {% for task in tasks %} 
-    <h2>タイトル : {{ task.title }}</h2> 
-    <p>詳細 : {{ task.details }}</p>
-    <a href="/update/{{ task.id }}" role="button">update</a><br>
-    <a href="/delete/{{ task.id }}" role="button">Delete</a><br>
+    <h2>{{ task.title }}</h2> 
+    <p> 詳細：{{ task.details }}</p>
+    <a href="/update/{{ task.id }}" role="button" class="decorated-button">update</a>
+    <a href="/delete/{{ task.id }}" role="button" class="decorated-button">Delete</a><br><br>
 {% endfor %}
 {% endblock %}
